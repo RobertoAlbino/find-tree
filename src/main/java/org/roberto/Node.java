@@ -15,27 +15,27 @@ public class Node {
         this.type = null;
     }
 
-    private boolean findRecursive(int value) {
+    private boolean findRecursive(Node node, int value) {
         System.out.println(String.format("Looking for %s", value));
-        if (Objects.isNull(this)) {
+        if (Objects.isNull(node)) {
             System.out.println("Null node...");
             return false;
         }
-        if (Objects.isNull(this.value)) {
+        if (Objects.isNull(node.value)) {
             System.out.println("Null value...");
             return false;
         }
-        System.out.println(String.format("Node value %s", this.value));
-        System.out.println(String.format("Node type %s", this.type));
-        if (this.value == value) {
+        System.out.println(String.format("Node value %s", node.value));
+        System.out.println(String.format("Node type %s", node.type));
+        if (node.value == value) {
             System.out.println("Found...");
             return true;
         }
-        if (Objects.nonNull(this.getLeft()) && this.getLeft().findRecursive(value)) {
+        if (Objects.nonNull(node.getLeft()) && findRecursive(node.getLeft(), value)) {
             System.out.println("Found in left...");
             return true;
         }
-        if (Objects.nonNull(this.getRigth()) && this.getRigth().findRecursive(value)) {
+        if (Objects.nonNull(node.getRigth()) && findRecursive(node.getRigth(), value)) {
             System.out.println("Found in rigth...");
             return true;
         }
@@ -44,7 +44,7 @@ public class Node {
     }
 
     public boolean exists(int value) {
-        return findRecursive(value);
+        return findRecursive(this, value);
     }
 
     public Node getLeft() {
