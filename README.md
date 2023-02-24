@@ -1,0 +1,1 @@
+Build && test: mvn clean install
