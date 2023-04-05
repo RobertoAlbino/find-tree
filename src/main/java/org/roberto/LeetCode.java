@@ -16,7 +16,6 @@ class LeetCode {
         }
     }
 
-
     public static void main(String[] args) {
         System.out.println("Resultado final: " + isIsomorphic("egcd", "adfd"));
     }
@@ -66,7 +65,7 @@ class LeetCode {
                     map.put(s.toCharArray()[i], new Pair(i, true, t.toCharArray()[i]));
                 }
                 if (t.toCharArray()[i] != t.toCharArray()[i + 1] ||
-                        t.toCharArray()[i] != map.get(s.toCharArray()[i]).secondArrayValue) {
+                    t.toCharArray()[i] != map.get(s.toCharArray()[i]).secondArrayValue) {
                     System.out.println("Colocou false 2");
                     isIsomorphic = false;
                 }
